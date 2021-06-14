@@ -61,7 +61,7 @@ function displayWeather(city) {
                         <section id="dailyForecast" class="border border-1 border-dark p-2">
                             <div class="d-flex flex-row">
                             <h2 class="fs-2 fw-bold">${weatherData.name + " (" + moment.unix(weatherData.dt).format("l") + ")"}</h2>
-                            <img src="https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png" alt="${weatherData.weather[0].description}">
+                            <img src="${iconURL + weatherData.weather[0].icon + iconFormat}" alt="${weatherData.weather[0].description}">
                             </div>
                             <div class="mt-2 d-grid gap-1">
                                 <p>Temp: ${weatherData.main.temp} °F</p>
@@ -80,7 +80,7 @@ function displayWeather(city) {
                         $("#fiveDayForecast").append(`
                             <div id="forecastCard" class="p-2">
                                 <h4>${moment.unix(oneCallData.daily[i].dt).format("l")}</h4>
-                                <img src="https://openweathermap.org/img/w/${oneCallData.daily[i].weather[0].icon}.png" alt="${oneCallData.daily[i].weather.description}">
+                                <img src="${iconURL + oneCallData.daily[i].weather[0].icon + iconFormat}" alt="${oneCallData.daily[i].weather.description}">
                                 <div class="mt-2">
                                     <p>Temp: ${oneCallData.daily[i].temp.day} °F</p>
                                     <p>Wind: ${oneCallData.daily[i].wind_speed} MPH</p>
@@ -110,5 +110,4 @@ $("#searchBtn").on("click", (event) => {
 
 $("#searchHistory").on("click", (event) => {
     displayWeather(event.target.innerText);
-    $("#searchCity").text("");
 });
