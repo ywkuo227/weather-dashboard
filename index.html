@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/custom.css">
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <header class="mb-2 d-flex justify-content-center align-items-center">
+        <h1 class="fw-bold m-3">Weather Dashboard</h1>
+    </header>
+    <main class="d-flex justify-content-start">
+        <section id="searchAndHistory" class="mx-2">
+            <form>
+                <div>
+                    <label for="searchCity" class="mb-2 fs-2 fw-bold">Search for a City:</label>
+                    <input type="text" id="searchCity" class="mb-3 p-2 w-100 border border-1 border-dark rounded-3"
+                        placeholder="San Diego">
+                </div>
+                <button id="searchBtn" class="p-2 w-100 rounded-3 text-white">Search</button>
+            </form>
+            <section id="searchHistory"></section>
+        </section>
+        <section id="dailyAnd5DayForecast" class="m-2"></section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/resource.js"></script>
+    <script src="./assets/js/query.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
