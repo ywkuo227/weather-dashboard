@@ -1,5 +1,7 @@
+// Array to hold the parsed search history from local storage.
 var arySearchHistory = [];
 
+// Function to render search history into buttons underneath the Search input.
 function renderSearchHistory() {
     if (JSON.parse(localStorage.getItem("searchHistory")) !== null) {
         arySearchHistory = JSON.parse(localStorage.getItem("searchHistory"));
@@ -16,12 +18,16 @@ function renderSearchHistory() {
     }
 }
 
+// Page initialization. Calls renderSearchHistory if history inside local storage exists.
 function pageInitialize() {
     if (JSON.parse(localStorage.getItem("searchHistory")) !== null) {
         renderSearchHistory();
     }
 }
 
+// Calls the OWM Weather API to retrieve the weather of the day and coordinate of the city, before calling OWM One Call API to retrive UV Index and weather forecast.
+// Once the responses are received from the APIs, the function renders the corresponding display elements.
+// The function also color-code the UV index.
 function displayWeather(city) {
     
     fetch(genWeatherQueryURL(city))
@@ -61,7 +67,7 @@ function displayWeather(city) {
                         <section id="dailyForecast" class="border border-1 border-dark p-2">
                             <div class="d-flex flex-row">
                             <h2 class="fs-2 fw-bold">${weatherData.name + " (" + moment.unix(weatherData.dt).format("l") + ")"}</h2>
-                            <img src="${iconURL + weatherData.weather[0].icon + iconFormat}" alt="${weatherData.weather[0].description}">
+                            <img src="${genIconURL(weatherData.weather[0].icon)}" alt="${weatherData.weather[0].description}">
                             </div>
                             <div class="mt-2 d-grid gap-1">
                                 <p>Temp: ${weatherData.main.temp} °F</p>
@@ -80,7 +86,7 @@ function displayWeather(city) {
                         $("#fiveDayForecast").append(`
                             <div id="forecastCard" class="p-2">
                                 <h4>${moment.unix(oneCallData.daily[i].dt).format("l")}</h4>
-                                <img src="${iconURL + oneCallData.daily[i].weather[0].icon + iconFormat}" alt="${oneCallData.daily[i].weather.description}">
+                                <img src="${genIconURL(oneCallData.daily[i].weather[0].icon)}" alt="${oneCallData.daily[i].weather.description}">
                                 <div class="mt-2">
                                     <p>Temp: ${oneCallData.daily[i].temp.day} °F</p>
                                     <p>Wind: ${oneCallData.daily[i].wind_speed} MPH</p>
@@ -94,8 +100,11 @@ function displayWeather(city) {
         })
 }
 
+// Initialize the page.
 pageInitialize();
 
+// Upon the search button being clicked, the method calls displayWeather function to retrieve the weather and forecast for the city the user want to search.
+// Meanwhile, the method also add the searched city to the front of the array of searched history and store back to the local storage.
 $("#searchBtn").on("click", (event) => {
     event.preventDefault();
     displayWeather($("#searchCity").val())
@@ -108,6 +117,7 @@ $("#searchBtn").on("click", (event) => {
     renderSearchHistory();
 });
 
+// When user click on the button represent the past search, the method calls displayWeather function to retrieve eather and forecase of the city.
 $("#searchHistory").on("click", (event) => {
     displayWeather(event.target.innerText);
 });

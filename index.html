@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Style resources -->
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -18,6 +19,7 @@
     </header>
     <main class="d-flex justify-content-start">
         <section id="searchAndHistory" class="mx-2">
+            <!-- From to search user specified city. -->
             <form>
                 <div>
                     <label for="searchCity" class="mb-2 fs-2 fw-bold">Search for a City:</label>
@@ -26,10 +28,13 @@
                 </div>
                 <button id="searchBtn" class="p-2 w-100 rounded-3 text-white">Search</button>
             </form>
+            <!-- Display the search history in buttons. -->
             <section id="searchHistory"></section>
         </section>
+        <!-- Sections to display the weather of the day and the future forecast. -->
         <section id="dailyAnd5DayForecast" class="m-2"></section>
     </main>
+    <!-- Script resources -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
