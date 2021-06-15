@@ -15,7 +15,7 @@ https://ywkuo227.github.io/weather-dashboard/
 - The web app assesses the UV Index and color-code accordingly. 
 
 ## Credit
-Bootstrap - https://getbootstrap.com
-jQuery - https://jquery.com
-Moment - https://momentjs.com
-OpenWeather - https://openweathermap.org
+- Bootstrap - https://getbootstrap.com
+- jQuery - https://jquery.com
+- Moment - https://momentjs.com
+- OpenWeather - https://openweathermap.org
