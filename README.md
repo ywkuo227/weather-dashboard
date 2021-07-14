@@ -1,7 +1,7 @@
 # weather-dashboard
 
 ## Description
-This a web app allows user to search the weather and the forecast of cities. The app also keep tracks of the past six searches made by the user and keep them stored in local storage.
+This a web app allows user to search the weather and the forecast of cities. The app also keeps track of the past six searches made by the user and keep them stored in local storage.
 
 ## Screenshot of the Application
 
